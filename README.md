@@ -1,1 +1,1 @@
-# Pintereststyle-web-page-Clone-
+Pinterest-style web mini project
