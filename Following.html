@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge; chrome=1">
+        <title></title>
+        <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="jquery.masonry.min.js"></script>
+        <script src="jquery.imagesloaded.min.js"></script>
+        <link rel="stylesheet" href="./css/pin.css">
+        <link rel="stylesheet" href="./css/slice.css">
+        <script src=".js"></script>
+        <!-- 추가본 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <!--여기까지-->
+        <script>
+            // 풀다운 메뉴
+            $(document).ready(function () {
+                // 풀다운 메뉴
+                $('.outer-menu').hover(function () {
+                    $(this)
+                        .find('.inner-menu')
+                        .css('display', 'block');
+                }, function () {
+                    $(this)
+                        .find('.inner-menu')
+                        .css('display', 'none');
+                });
+            });
+
+            // 페이지
+            $(document).ready(function () {
+                // 이미지 로드 확인
+                $('#main-section').imagesLoaded(function () {
+                    // jQuery Masonry 플러그인 적용
+                    $('#main-section').masonry(
+                        {itemSelector: '.paper', columnWidth: 230, isAnimated: true}
+                    );
+                });
+            });
+
+            // 라이트 박스
+            $(document).ready(function () {
+                function showLightBox() {
+                    // 라이트박스를 보이게 합니다.
+                    $('#darken-background').show();
+                    $('#darken-background').css('top', $(window).scrollTop());
+                    // 스크롤을 못하게 합니다.
+                    $('body').css('overflow', 'hidden');
+                }
+
+                function hideLightBox() {
+                    // 라이트박스를 안 보이게 합니다.
+                    $('#darken-background').hide();
+
+                    // 스크롤을 하게 합니다.
+                    $('body').css('overflow', '');
+                }
+
+                // 라이트박스 제거 이벤트
+                $('#darken-background').click(function () {
+                    hideLightBox();
+                });
+
+                // 클릭 이벤트 연결
+                $('.paper').click(function () {
+                    showLightBox();
+                });
+
+                // 라이트박스 제거 이벤트 보조
+                $('#lightbox').click(function (event) {
+                    event.stopPropagation()
+                });
+            });
+        </script>
+
+        <!-- main부 style -->
+        <style>
+            .bg-1 {
+                background-color: #d5f1f1;
+                color: #ffffff;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+
+            .bg-2 {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .bg-3 {
+                background-color: #f6f6f6;
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .bg-4 {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .icon {
+                color: #f4511e;
+                font-size: 50px;
+                margin: 25px 0;
+            }
+
+            .icon1 {
+                color: black;
+                font-size: 16px;
+            }
+
+            .member {
+                border: 10px solid transparent;
+            }
+
+            .member:hover {
+                border-color: #e2e2e2;
+            }
+
+            .navbar {
+                margin-bottom: 0;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 헤더 -->
+        <header id="main-header">
+            <div class="header-search-form">
+                <!--검색창-->
+                <form action="">
+                    <input type="search" class="input-search">
+                    <input type="search" class="input-search-submit" value="검색">
+                </form>
+            </div>
+            <h1 class="header-title">Interest</h1>
+            <!--page title-->
+            <div class="header-menu">
+                <!--MENU bar-->
+                <ul class="outer-menu">
+                    <li>
+                        <a href="#">정보</a>
+                        <!--first menu-->
+                        <ul class="inner-menu">
+                            <li>
+                                <a href="#">알림 & 혜택</a>
+                            </li>
+                            <li>
+                                <a href="#">아이디 찾기</a>
+                            </li>
+                            <li>
+                                <a href="#">비밀번호<br>찾기</a>
+                            </li>
+                            <li>
+                                <a href="#">회원가입</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="outer-menu">
+                    <li>
+                        <a href="#">사용자</a>
+                        <!--second menu-->
+                        <ul class="inner-menu">
+                            <li>
+                                <a href="#">ID 로그인</a>
+                            </li>
+                            <li>
+                                <a href="#">내프로필</a>
+                            </li>
+                            <li>
+                                <a href="#">보안설정</a>
+                            </li>
+                            <li>
+                                <a href="#">이력관리</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <!-- 내비게이션 메뉴 -->
+        <nav id="main-navigation">
+            <!--nav 카테고리-->
+            <ul>
+                <li>
+                    <a href="Main.html">Home</a>
+                </li>
+                <li>
+                    <a href="#">Following</a>
+                </li>
+                <li>
+                    <a href="#">Categories</a>
+                </li>
+                <li>
+                    <a href="#">Everything</a>
+                </li>
+                <li>
+                    <a href="#">Popular</a>
+                </li>
+                <li>
+                    <a href="#">Gift</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 본문영역 -->
+        <section>  <!--id="main-section"-->
+            <div id="about" class="container-fluid text-center bg-1">
+                <div class="row">
+                        <ul class="slides">
+                            <input type="radio" name="radio-btn" id="img-1" checked="checked"/>
+                            <li class="slide-container">
+                                <div class="slide">
+                                    <img src="https://cdn.pixabay.com/photo/2022/05/17/15/59/cat-7203072_960_720.jpg" style="width:100%"/>
+                                </div>
+                                <div class="nav">
+                                    <label for="img-6" class="prev">&#x2039;</label>
+                                    <label for="img-2" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                
+                            <input type="radio" name="radio-btn" id="img-2"/>
+                            <li class="slide-container">
+                                <div class="slide">
+                                    <img
+                                        src="https://cdn.pixabay.com/photo/2012/06/08/06/19/clouds-49520_960_720.jpg"/>
+                                </div>
+                                <div class="nav">
+                                    <label for="img-1" class="prev">&#x2039;</label>
+                                    <label for="img-3" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                
+                            <input type="radio" name="radio-btn" id="img-3"/>
+                            <li class="slide-container">
+                                <div class="slide">
+                                    <img
+                                        src="https://cdn.pixabay.com/photo/2014/04/17/23/26/environmental-protection-326923_960_720.jpg"/>
+                                </div>
+                                <div class="nav">
+                                    <label for="img-2" class="prev">&#x2039;</label>
+                                    <label for="img-4" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                
+                            <input type="radio" name="radio-btn" id="img-4"/>
+                            <li class="slide-container">
+                                <div class="slide">
+                                    <img
+                                        src="https://cdn.pixabay.com/photo/2014/02/05/08/19/smoke-258786_960_720.jpg"/>
+                                </div>
+                                <div class="nav">
+                                    <label for="img-3" class="prev">&#x2039;</label>
+                                    <label for="img-5" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                
+                            <input type="radio" name="radio-btn" id="img-5"/>
+                            <li class="slide-container">
+                                <div class="slide">
+                                    <img
+                                        src="https://cdn.pixabay.com/photo/2015/04/19/08/33/flower-729512_960_720.jpg"/>
+                                </div>
+                                <div class="nav">
+                                    <label for="img-4" class="prev">&#x2039;</label>
+                                    <label for="img-6" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                
+                            <input type="radio" name="radio-btn" id="img-6"/>
+                            <li class="slide-container">
+                                <div class="slide">
+                                    <img
+                                        src="https://cdn.pixabay.com/photo/2014/01/22/19/44/flower-field-250016_960_720.jpg"/>
+                                </div>
+                                <div class="nav">
+                                    <label for="img-5" class="prev">&#x2039;</label>
+                                    <label for="img-1" class="next">&#x203a;</label>
+                                </div>
+                            </li>
+                
+                            <li class="nav-dots">
+                                <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+                                <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+                                <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+                                <label for="img-4" class="nav-dot" id="img-dot-4"></label>
+                                <label for="img-5" class="nav-dot" id="img-dot-5"></label>
+                                <label for="img-6" class="nav-dot" id="img-dot-6"></label>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+            </div>
+            <div id="about" class="container-fluid text-center bg-2">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td rowspan="3" style="background-image: url(./images/BackgroundFront.png);">
+                                <br><br><br><br><br>
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Search Word" required>
+                                    </div>
+                                    <button type="button" class="btn btn-danger">검색</button>
+                                </form> 
+                            </td>
+                            <td rowspan="2"><h2>태그 검색(#)</h2></td>   
+                        </tr>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>어떤 것을 시도해 보고 싶으세요? '닭<br>
+                                고기로 만드는 간단한 저녁메뉴'와 같<br>
+                                이 관심 있는 내용의 TAG를 검색하고<br>
+                                결과를 확인해 보세요.</p><br>
+                                <button type="button" class="btn btn-danger" style="background-color: #f1730b;">태그&nbsp;탐색</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="about" class="container-fluid text-center bg-3">
+                <h1>Follow Scheduler</h1>
+                <p>-  Time table  -</p>
+                <form class="form-inline">
+                    <ul class="menu">
+                        <li class="menuItem">
+                            <iframe src="Calender.html" frameborder="0" marginwidth="0" marginheight="0" ﻿scrolling="no" title="내용" width="100%" height="500px"></iframe>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+            <div id="contact" class="container-fluid text-center bg-4">
+                <h3>CONTACT</h3>
+                <div class="row">
+                    <div class="col-sm-5 text-left">
+                        <h4>Contact us and we'll get back to you within 24 hours.</h4>
+                        <p class="glyphicon glyphicon-map-marker icon1"><span> Gangnam, South Korea</span></p></br>
+                        <p class="glyphicon glyphicon-phone icon1"></p><span class="icon1">&nbsp;&nbsp;&nbsp; +00 1515151515</span></br>
+                        <p class="glyphicon glyphicon-envelope icon1"><span> myemail@something.com</span></p>
+                    </div>
+                    <div class="col-sm-7 text-right">
+                        <div class="form-group">
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="col-sm-12">
+                                </br>
+                                <input style="height: 130px;" type="text" class="form-control" placeholder="Comment" required>
+                                </br>
+                                <button type="button" class="btn btn-default">Send</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
